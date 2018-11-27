@@ -1,0 +1,41 @@
+<br>
+<br>
+<br>
+<div style="text-align: center !important">
+  <mat-card padding>
+    <mat-card-content margin>
+
+      <input [(ngModel)]="coincidencias.coincidencia" placeholder="Ingrese texto...">
+
+      <button mat-raised-button color="accent" (click)="getCoincidencias()">
+        <span style="font-weight: bold">Buscar</span>
+      </button>
+      <div>
+
+        <mat-chip-list>
+          <mat-chip *ngFor="let busqueda of busquedas">{{busqueda}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card padding>
+    <mat-card-content margin>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let producto of productos">
+          <mat-icon mat-list-icon>
+            <img src={{producto.smallImage}} height="50px">
+          </mat-icon>
+          <h4 mat-line style="font-weight: bold">Nombre: </h4>
+          <br>
+          <h4 mat-line>{{producto.productDisplayName}}</h4>
+          <br>
+          <h4 mat-line style="font-weight: bold">Precio: </h4>
+          <br>
+          <p mat-line> {{+producto.salePrice | currency}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</div>
